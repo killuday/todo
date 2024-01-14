@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo } from "../features/todo/todoSlice";
+import { IRootState } from "../app/store";
 
 const Todos: React.FC = () => {
-  const todos = useSelector(state => state.todos);
+  const todos = useSelector<IRootState, { id: string; text: string; }[]>(state => state.todos);
+
   const dispatch = useDispatch();
 
   return (
